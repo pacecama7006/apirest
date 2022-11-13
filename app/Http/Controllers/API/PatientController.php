@@ -29,7 +29,13 @@ class PatientController extends Controller
      */
     public function store(StorePatientRequest $request)
     {
-        //
+        //Creamos un paciente
+        Patient::create($request->validated());
+        // Regresamos una respuesta
+        return response()->json([
+            'res' => 'true',
+            'message' => 'Paciente guardado correctamente',
+        ]);
     }
 
     /**

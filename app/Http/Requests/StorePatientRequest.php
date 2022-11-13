@@ -13,7 +13,7 @@ class StorePatientRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,6 +25,15 @@ class StorePatientRequest extends FormRequest
     {
         return [
             //
+            'nombres' => 'required',
+            'apellidos' => 'required',
+            'sexo' => 'required',
+            'edad' => 'required',
+            'curp' => 'required|unique:patients,curp',
+            'tipo_sangre' => 'required',
+            'telefono' => 'required',
+            'correo' => 'required|email',
+            'direccion' => 'required',
         ];
     }
 }
