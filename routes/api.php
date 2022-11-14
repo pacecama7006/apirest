@@ -25,3 +25,6 @@ Route::post('pacientes', [PatientController::class, 'store']);
 Route::get('paciente/{patient}', [PatientController::class, 'show']);
 Route::put('paciente/{patient}', [PatientController::class, 'update']);
 Route::delete('paciente/{patient}', [PatientController::class, 'destroy']);
+
+// Todas las rutas se pueden reorganizar en
+// Route::apiResource('pacientes', PatientController::class);
