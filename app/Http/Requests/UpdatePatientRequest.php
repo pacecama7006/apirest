@@ -29,6 +29,7 @@ class UpdatePatientRequest extends FormRequest
             'apellidos' => 'required',
             'sexo' => 'required',
             'edad' => 'required',
+            // 'curp' => 'required|unique:patients,curp,' . $this->route('patient')->id,
             'curp' => 'required|unique:patients,curp,' . $this->patient->id,
             'tipo_sangre' => 'required',
             'telefono' => 'required',

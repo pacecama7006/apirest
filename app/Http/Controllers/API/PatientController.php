@@ -35,7 +35,7 @@ class PatientController extends Controller
         return response()->json([
             'res' => 'true',
             'message' => 'Paciente guardado correctamente',
-        ]);
+        ],200);
     }
 
     /**
@@ -46,7 +46,11 @@ class PatientController extends Controller
      */
     public function show(Patient $patient)
     {
-        //
+        //Muestra los datos de un paciente en json
+        return response()->json([
+            'res' => 'true',
+            'paciente' => $patient,
+        ],200);
     }
 
     /**
@@ -59,6 +63,13 @@ class PatientController extends Controller
     public function update(UpdatePatientRequest $request, Patient $patient)
     {
         //
+        $patient->update($request->validated());
+        // $patient->update($request->all());
+
+        return response()->json([
+            'res' => 'true',
+            'message' => 'El paciente se actualizó con éxito',
+        ],200);
     }
 
     /**
@@ -70,5 +81,11 @@ class PatientController extends Controller
     public function destroy(Patient $patient)
     {
         //
+        $patient->delete();
+
+        return response()->json([
+            'res' => 'true',
+            'message' => 'Paciente eliminado correctamente',
+        ],200);
     }
 }
