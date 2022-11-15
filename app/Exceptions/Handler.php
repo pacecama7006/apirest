@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Throwable;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Symfony\Component\Routing\Exception\RouteNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -62,6 +63,10 @@ class Handler extends ExceptionHandler
     {
         if($exception instanceof ModelNotFoundException){
             return response()->json(["res" => false, "error" => "Error modelo no encontrado"], 400);
+        }
+        // Excepción cuando el usuario no tiene token creado y no se puede logear al sistema
+        if($exception instanceof RouteNotFoundException){
+            return response()->json(["res" => false, "error" => "No tiene permisos para acceder a esta ruta"], 401);
         }
         return parent::render($request, $exception);
     }

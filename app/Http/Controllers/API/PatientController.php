@@ -22,7 +22,8 @@ class PatientController extends Controller
 
         //Otra forma con el PatientResource
         //Devolvemos todos los pacientes utilizando el patientResource Me lo devuelve como un array
-        return PatientResource::collection(Patient::all());
+        // return PatientResource::collection(Patient::all());
+        return PatientResource::collection(Patient::paginate(3));
     }
 
     /**
