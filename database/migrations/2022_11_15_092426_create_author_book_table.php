@@ -15,9 +15,11 @@ return new class extends Migration
     {
         Schema::create('author_book', function (Blueprint $table) {
             $table->id();
-            $table->integer('books_id');
-            $table->integer('authors_id');
-            $table->timestamps();
+            // $table->foreignId('books_id')->nullable()->constrained();
+            // $table->foreignId('authors_id')->nullable()->constrained();
+            // $table->timestamps();
+            $table->foreignId('author_id')->nullable()->constrained();
+            $table->foreignId('book_id')->nullable()->constrained();
         });
     }
 

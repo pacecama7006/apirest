@@ -21,7 +21,7 @@ class BookFactory extends Factory
             'name' => $this->faker->name(),
             'isbn' => $this->faker->numberBetween(10, 50),
             'publication_year' => $this->faker->year(),
-            'book_status_id' => $this->faker->randomNumber(1, 5)
+            'book_status_id' => $this->faker->numberBetween(1, 5)
         ];
     }
 }

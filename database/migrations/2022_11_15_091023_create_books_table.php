@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('isbn');
             $table->integer('publication_year');
-            $table->integer('book_status_id');
+            $table->foreignId('book_status_id')->nullable()->constrained();
             $table->timestamps();
         });
     }

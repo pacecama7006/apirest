@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\BookStatusResource;
 use App\Models\BookStatus;
 use Illuminate\Http\Request;
 
@@ -16,6 +17,7 @@ class BookStatusController extends Controller
     public function index()
     {
         //
+        return BookStatusResource::collection(BookStatus::all());
     }
 
     /**

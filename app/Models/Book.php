@@ -17,7 +17,7 @@ class Book extends Model
     ];
 
     //Relaciones
-    public function book_statis()
+    public function book_status()
     {
         # code...
         return $this->belongsTo(BookStatus::class);
